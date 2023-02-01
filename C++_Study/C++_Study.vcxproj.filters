@@ -12,6 +12,12 @@
     <ClCompile Include="C++_Study.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="source.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="marine.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="header1.h">

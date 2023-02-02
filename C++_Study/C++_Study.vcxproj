@@ -141,6 +141,7 @@
   <ItemGroup>
     <ClCompile Include="C++_Study.cpp" />
     <ClCompile Include="marine.cpp" />
+    <ClCompile Include="photon_cannon.cpp" />
     <ClCompile Include="source.cpp" />
   </ItemGroup>
   <ItemGroup>

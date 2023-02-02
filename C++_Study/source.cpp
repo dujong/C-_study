@@ -1,134 +1,134 @@
-// C++_Study.cpp : ÀÌ ÆÄÀÏ¿¡´Â 'main' ÇÔ¼ö°¡ Æ÷ÇÔµË´Ï´Ù. °Å±â¼­ ÇÁ·Î±×·¥ ½ÇÇàÀÌ ½ÃÀÛµÇ°í Á¾·áµË´Ï´Ù.
-#include <iostream>
-
-#include "header1.h"
-
-int change_val(int& p, int* q) {
-	p = 3;
-	*q = 33;
-	if (p == 3 && *q == 33)
-		std::cout << "change success" << std::endl;
-	else
-		std::cout << "change fail" << std::endl;
-
-	return 0;
-}
-
-//¸Þ¸ð¸® ÇÒ´ç new ,delete
-typedef struct Animal {
-	char name[30];  // ÀÌ¸§
-	int age;        // ³ªÀÌ
-
-	int health;  // Ã¼·Â
-	int food;    // ¹èºÎ¸¥ Á¤µµ
-	int clean;   // ±ú²ýÇÑ Á¤µµ
-} Animal;
-
-void create_animal(Animal* animal) {
-	std::cout << "µ¿¹°ÀÇ ÀÌ¸§? ";
-	std::cin >> animal->name;
-
-	std::cout << "µ¿¹°ÀÇ ³ªÀÌ? ";
-	std::cin >> animal->age;
-
-	animal->health = 100;
-	animal->food = 100;
-	animal->clean = 100;
-}
-
-void play(Animal* animal) {
-	animal->health += 10;
-	animal->food -= 20;
-	animal->clean -= 30;
-}
-void one_day_pass(Animal* animal) {
-	// ÇÏ·ç°¡ Áö³ª¸é
-	animal->health -= 10;
-	animal->food -= 30;
-	animal->clean -= 20;
-}
-void show_stat(Animal* animal) {
-	std::cout << animal->name << "ÀÇ »óÅÂ" << std::endl;
-	std::cout << "Ã¼·Â    : " << animal->health << std::endl;
-	std::cout << "¹èºÎ¸§ : " << animal->food << std::endl;
-	std::cout << "Ã»°á    : " << animal->clean << std::endl;
-}
-
-int main_()
-{
-	//ÀÔÃâ·Â
-	std::cout << "========= ÀÔÃâ·Â ========= " << std::endl;
-	int age;
-	std::cout << "Your age:";
-	std::cin >> age;
-	std::cout << "my age : " << age << std::endl;
-
-	//ÂüÁ¶ÀÚ
-	std::cout << "========= ÂüÁ¶ÀÚ ========= " << std::endl;
-	int number1 = 5;
-	int number2 = 10;
-	change_val(number1, &number2);
-	std::cout << number1 << std::endl;
-	std::cout << number2 << std::endl;
-
-	int& another_number = number1;
-	another_number = 10;
-	std::cout << "number:" << number1 << std::endl;
-	std::cout << "another_number:" << another_number << std::endl;
-
-	//¸Þ¸ð¸® ÇÒ´ç new ,delete
-	// T* pointer = new T;
-	// T* pointer = new T[size];
-	std::cout << "========= ¸Þ¸ð¸® ÇÒ´ç new ,delete ========= " << std::endl;
-	int* p = new int;
-	*p = 10;
-
-	std::cout << *p << std::endl;
-	delete p;
-
-
-	Animal* list[10];
-	int animal_num = 0;
-
-	for (;;) {
-		std::cout << "1. µ¿¹° Ãß°¡ÇÏ±â" << std::endl;
-		std::cout << "2. ³î±â " << std::endl;
-		std::cout << "3. »óÅÂ º¸±â " << std::endl;
-
-		int input;
-		std::cin >> input;
-
-		switch (input) {
-			int play_with;
-		case 1:
-			list[animal_num] = new Animal;
-			create_animal(list[animal_num]);
-
-			animal_num++;
-			break;
-		case 2:
-			std::cout << "´©±¸¶û ³î°Ô? : ";
-			std::cin >> play_with;
-
-			if (play_with < animal_num) play(list[play_with]);
-
-			break;
-
-		case 3:
-			std::cout << "´©±¸²¬ º¸°Ô? : ";
-			std::cin >> play_with;
-			if (play_with < animal_num) show_stat(list[play_with]);
-			break;
-		}
-
-		for (int i = 0; i != animal_num; i++) {
-			one_day_pass(list[i]);
-		}
-	}
-	for (int i = 0; i != animal_num; i++) {
-		delete list[i];
-	}
-
-
-	return 0;
-}
+//// C++_Study.cpp : ï¿½ï¿½ ï¿½ï¿½ï¿½Ï¿ï¿½ï¿½ï¿½ 'main' ï¿½Ô¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ÔµË´Ï´ï¿½. ï¿½Å±â¼­ ï¿½ï¿½ï¿½Î±×·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ÛµÇ°ï¿½ ï¿½ï¿½ï¿½ï¿½Ë´Ï´ï¿½.
+//#include <iostream>
+//
+//#include "header1.h"
+//
+//int change_val(int& p, int* q) {
+//	p = 3;
+//	*q = 33;
+//	if (p == 3 && *q == 33)
+//		std::cout << "change success" << std::endl;
+//	else
+//		std::cout << "change fail" << std::endl;
+//
+//	return 0;
+//}
+//
+////ï¿½Þ¸ï¿½ ï¿½Ò´ï¿½ new ,delete
+//typedef struct Animal {
+//	char name[30];  // ï¿½Ì¸ï¿½
+//	int age;        // ï¿½ï¿½ï¿½ï¿½
+//
+//	int health;  // Ã¼ï¿½ï¿½
+//	int food;    // ï¿½ï¿½Î¸ï¿½ ï¿½ï¿½ï¿½ï¿½
+//	int clean;   // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+//} Animal;
+//
+//void create_animal(Animal* animal) {
+//	std::cout << "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½? ";
+//	std::cin >> animal->name;
+//
+//	std::cout << "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½? ";
+//	std::cin >> animal->age;
+//
+//	animal->health = 100;
+//	animal->food = 100;
+//	animal->clean = 100;
+//}
+//
+//void play(Animal* animal) {
+//	animal->health += 10;
+//	animal->food -= 20;
+//	animal->clean -= 30;
+//}
+//void one_day_pass(Animal* animal) {
+//	// ï¿½Ï·ç°¡ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+//	animal->health -= 10;
+//	animal->food -= 30;
+//	animal->clean -= 20;
+//}
+//void show_stat(Animal* animal) {
+//	std::cout << animal->name << "ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½" << std::endl;
+//	std::cout << "Ã¼ï¿½ï¿½    : " << animal->health << std::endl;
+//	std::cout << "ï¿½ï¿½Î¸ï¿½ : " << animal->food << std::endl;
+//	std::cout << "Ã»ï¿½ï¿½    : " << animal->clean << std::endl;
+//}
+//
+//int main_()
+//{
+//	//ï¿½ï¿½ï¿½ï¿½ï¿½
+//	std::cout << "========= ï¿½ï¿½ï¿½ï¿½ï¿½ ========= " << std::endl;
+//	int age;
+//	std::cout << "Your age:";
+//	std::cin >> age;
+//	std::cout << "my age : " << age << std::endl;
+//
+//	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+//	std::cout << "========= ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ========= " << std::endl;
+//	int number1 = 5;
+//	int number2 = 10;
+//	change_val(number1, &number2);
+//	std::cout << number1 << std::endl;
+//	std::cout << number2 << std::endl;
+//
+//	int& another_number = number1;
+//	another_number = 10;
+//	std::cout << "number:" << number1 << std::endl;
+//	std::cout << "another_number:" << another_number << std::endl;
+//
+//	//ï¿½Þ¸ï¿½ ï¿½Ò´ï¿½ new ,delete
+//	// T* pointer = new T;
+//	// T* pointer = new T[size];
+//	std::cout << "========= ï¿½Þ¸ï¿½ ï¿½Ò´ï¿½ new ,delete ========= " << std::endl;
+//	int* p = new int;
+//	*p = 10;
+//
+//	std::cout << *p << std::endl;
+//	delete p;
+//
+//
+//	Animal* list[10];
+//	int animal_num = 0;
+//
+//	for (;;) {
+//		std::cout << "1. ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ï¿½Ï±ï¿½" << std::endl;
+//		std::cout << "2. ï¿½ï¿½ï¿½ " << std::endl;
+//		std::cout << "3. ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ " << std::endl;
+//
+//		int input;
+//		std::cin >> input;
+//
+//		switch (input) {
+//			int play_with;
+//		case 1:
+//			list[animal_num] = new Animal;
+//			create_animal(list[animal_num]);
+//
+//			animal_num++;
+//			break;
+//		case 2:
+//			std::cout << "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½? : ";
+//			std::cin >> play_with;
+//
+//			if (play_with < animal_num) play(list[play_with]);
+//
+//			break;
+//
+//		case 3:
+//			std::cout << "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½? : ";
+//			std::cin >> play_with;
+//			if (play_with < animal_num) show_stat(list[play_with]);
+//			break;
+//		}
+//
+//		for (int i = 0; i != animal_num; i++) {
+//			one_day_pass(list[i]);
+//		}
+//	}
+//	for (int i = 0; i != animal_num; i++) {
+//		delete list[i];
+//	}
+//
+//
+//	return 0;
+//}

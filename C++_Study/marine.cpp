@@ -1,98 +1,98 @@
-#define _CRT_SECURE_NO_WARNINGS
-
-#include <iostream>
-
-class Marine {
-	int hp;					// ¸¶¸° Ã¼·Â
-	int coord_x, coord_y;	// ¸¶¸° À§Ä¡
-	int damege;				// °ø°Ý·Â
-	bool is_dead;			// »ýÁ¸ ¿©ºÎ
-	char* name;				// ¸¶¸° ÀÌ¸§
-public:
-	Marine();										// ±âº» »ý¼ºÀÚ
-	Marine(int x, int y);							// x,y ÁÂÇ¥¿¡ ¸¶¸° »ý¼º
-	Marine(int x, int y, const char* marine_name);	// ÀÌ¸§À» °¡Áø ¸¶¸° x,y ÁÂÇ¥¿¡ »ý¼º
-	~Marine();
-
-	int attack();						// µ¥¹ÌÁö return
-	void be_attacked(int damege_earn);	// ÀÔ´Â µ¥¹ÌÁö
-	void move(int x, int y);			// »õ·Î¿î À§Ä¡
-
-	void show_status();		// »óÅÂ¸¦ º¸¿©ÁÜ
-
-};
-
-Marine::Marine() {
-	hp = 50;
-	coord_x = coord_y = 0;
-	damege = 5;
-	is_dead = false;
-	name = NULL;
-}
-
-Marine::Marine(int x, int y) {
-	hp = 50;
-	coord_x = x;
-	coord_y = y;
-	damege = 5;
-	is_dead = false;
-	name = NULL;
-}
-
-Marine::Marine(int x, int y, const char* marine_name) {
-	hp = 50;
-	coord_x = x;
-	coord_y = y;
-	damege = 5;
-	is_dead = false;
-	name = new char[strlen(marine_name) + 1];
-	strcpy(name, marine_name);
-}
-
-Marine::~Marine() {
-	std::cout << name << " ÀÇ ¼Ò¸êÀÚ È£Ãâ ! " << std::endl;
-	if (name != NULL) {
-		delete[] name;
-	}
-}
-
-int Marine::attack() { return damege; }
-
-void Marine::be_attacked(int damege_earn) {
-	hp -= damege_earn;
-	if (hp <= 0)
-		is_dead = true;
-}
-
-void Marine::move(int x, int y) {
-	coord_x = x;
-	coord_y = y;
-}
-
-void Marine::show_status() {
-	std::cout << " *** Marine:" << name << " ***" << std::endl;
-	std::cout << " Location : (" << coord_x << " , " << coord_y << ")" << std::endl;
-	std::cout << "HP : " << hp << "\n" << std::endl;
-}
-
-int marine()
-{
-	Marine* marines[100];
-
-	marines[0] = new Marine(2, 3, "Marine1");
-	marines[1] = new Marine(3, 5, "Marine2");
-
-	marines[0]->show_status();
-	marines[1]->show_status();
-
-	std::cout << std::endl << "¸¶¸° 1 ÀÌ ¸¶¸° 2 ¸¦ °ø°Ý!" << std::endl;
-	marines[1]->be_attacked(marines[0]->attack());
-
-	marines[0]->show_status();
-	marines[1]->show_status();
-
-	delete marines[0];
-	delete marines[1];
-
-	return 0;
-}
+//#define _CRT_SECURE_NO_WARNINGS
+//
+//#include <iostream>
+//
+//class Marine {
+//	int hp;					// ï¿½ï¿½ï¿½ï¿½ Ã¼ï¿½ï¿½
+//	int coord_x, coord_y;	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡
+//	int damege;				// ï¿½ï¿½ï¿½Ý·ï¿½
+//	bool is_dead;			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+//	char* name;				// ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½
+//public:
+//	Marine();										// ï¿½âº» ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+//	Marine(int x, int y);							// x,y ï¿½ï¿½Ç¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+//	Marine(int x, int y, const char* marine_name);	// ï¿½Ì¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ x,y ï¿½ï¿½Ç¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+//	~Marine();
+//
+//	int attack();						// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ return
+//	void be_attacked(int damege_earn);	// ï¿½Ô´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+//	void move(int x, int y);			// ï¿½ï¿½ï¿½Î¿ï¿½ ï¿½ï¿½Ä¡
+//
+//	void show_status();		// ï¿½ï¿½ï¿½Â¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+//
+//};
+//
+//Marine::Marine() {
+//	hp = 50;
+//	coord_x = coord_y = 0;
+//	damege = 5;
+//	is_dead = false;
+//	name = NULL;
+//}
+//
+//Marine::Marine(int x, int y) {
+//	hp = 50;
+//	coord_x = x;
+//	coord_y = y;
+//	damege = 5;
+//	is_dead = false;
+//	name = NULL;
+//}
+//
+//Marine::Marine(int x, int y, const char* marine_name) {
+//	hp = 50;
+//	coord_x = x;
+//	coord_y = y;
+//	damege = 5;
+//	is_dead = false;
+//	name = new char[strlen(marine_name) + 1];
+//	strcpy(name, marine_name);
+//}
+//
+//Marine::~Marine() {
+//	std::cout << name << " ï¿½ï¿½ ï¿½Ò¸ï¿½ï¿½ï¿½ È£ï¿½ï¿½ ! " << std::endl;
+//	if (name != NULL) {
+//		delete[] name;
+//	}
+//}
+//
+//int Marine::attack() { return damege; }
+//
+//void Marine::be_attacked(int damege_earn) {
+//	hp -= damege_earn;
+//	if (hp <= 0)
+//		is_dead = true;
+//}
+//
+//void Marine::move(int x, int y) {
+//	coord_x = x;
+//	coord_y = y;
+//}
+//
+//void Marine::show_status() {
+//	std::cout << " *** Marine:" << name << " ***" << std::endl;
+//	std::cout << " Location : (" << coord_x << " , " << coord_y << ")" << std::endl;
+//	std::cout << "HP : " << hp << "\n" << std::endl;
+//}
+//
+//int marine()
+//{
+//	Marine* marines[100];
+//
+//	marines[0] = new Marine(2, 3, "Marine1");
+//	marines[1] = new Marine(3, 5, "Marine2");
+//
+//	marines[0]->show_status();
+//	marines[1]->show_status();
+//
+//	std::cout << std::endl << "ï¿½ï¿½ï¿½ï¿½ 1 ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 2 ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½!" << std::endl;
+//	marines[1]->be_attacked(marines[0]->attack());
+//
+//	marines[0]->show_status();
+//	marines[1]->show_status();
+//
+//	delete marines[0];
+//	delete marines[1];
+//
+//	return 0;
+//}

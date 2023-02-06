@@ -1,26 +1,18 @@
 ﻿#include <iostream>
 #include <string>
-
-class Parent {
-	int a;
-
-public:
-	Parent(int a) : a(a) {}
-	virtual int f() { return a; }
-};
-
-class Child : public Parent {
-	int b;
-
-public:
-	Child(int b) : Parent(), b(b) {}
-	int f() override { return b; }
-};
-
-int main() {
-	Parent* p = new Parent(10);
-	Parent* c = new Child(20);
+#include <fstream>
 	
+int main() {
+	std::ifstream in("test.txt");
+	std::string s;
+
+	if (in.is_open()) {
+		in >> s;
+		std::cout << "입력 받은문자열 :: " << s << std::endl;
+	}
+	else {
+		std::cout << "파일을 찾을 수 없습니다!" << std::endl;
+	}
 
 	return 0;
 }

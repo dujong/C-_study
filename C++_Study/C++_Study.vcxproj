@@ -140,9 +140,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="C++_Study.cpp" />
+    <ClCompile Include="complex.cpp" />
+    <ClCompile Include="excel.cpp" />
+    <ClCompile Include="Manager_Employee.cpp" />
     <ClCompile Include="marine.cpp" />
     <ClCompile Include="photon_cannon.cpp" />
     <ClCompile Include="source.cpp" />
+    <ClCompile Include="str_overloading.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="header1.h" />

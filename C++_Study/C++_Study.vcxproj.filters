@@ -21,6 +21,18 @@
     <ClCompile Include="photon_cannon.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="complex.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="Manager_Employee.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="str_overloading.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="excel.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="header1.h">

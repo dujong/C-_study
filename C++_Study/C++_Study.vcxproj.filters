@@ -33,6 +33,9 @@
     <ClCompile Include="excel.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="variable_template.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="header1.h">
